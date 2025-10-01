@@ -41,3 +41,6 @@ venv/
 /data/
 !/data/Most_extreme_pictures/
 !/data/Icon
+
+# Large notebooks with outputs
+low_level_features_berman.ipynb
