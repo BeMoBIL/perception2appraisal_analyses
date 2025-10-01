@@ -1,5 +1,6 @@
 import os
 from datetime import datetime
+import json
 import pandas as pd
 from tqdm import tqdm
 from pprint import pprint
@@ -39,7 +40,9 @@ def do_for_each_file_in_folder(folder_path, fn, file_filter=None):
 
             # Round the float values in the result dictionary
             rounded_result = {key: round(value, 4) if isinstance(value, float) else value for key, value in result.items()}
-            pprint(rounded_result)
+
+            rounded_result = {key: round(value, 4) if isinstance(value, float) else value for key, value in result.items()}         
+            print(json.dumps(rounded_result, indent=4))
 
     return results
 
