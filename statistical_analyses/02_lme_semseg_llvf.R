@@ -22,9 +22,9 @@ library(janitor)
 # Configuration ----------------------------------------------------------------
 DATA_FILE <- "/path/to/combined_data_full.csv"
 P3_LPP_FILE <- "/path/to/AverageP3_LPP.csv"
-LLVF_FILE <- "/path/to/results_llvf.csv"
-DEPTH_FILE <- "/path/to/results_depth.csv"
-GREEN_MASK_FILE <- "/path/to/results_green_mask.csv"
+LLVF_FILE <- "/path/to/llvf_file.csv"
+DEPTH_FILE <- "/path/to/depth_file.csv"
+GREEN_MASK_FILE <- "/path/to/green_mask_file.csv"
 OUTPUT_DIR <- "/path/to/output"
 
 # Analysis control (set to FALSE to skip sections) ----------------------------

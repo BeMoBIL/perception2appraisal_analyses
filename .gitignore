@@ -39,6 +39,6 @@ venv/
 .vscode/
 
 # Ignore data folder except for specific files
-/data/
+#/data/
 !/data/Most_extreme_pictures/
 !/data/Icon
