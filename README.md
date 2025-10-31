@@ -17,13 +17,8 @@ This project contains scripts for:
 ## Repository Structure
 
 ```
-neurourbanism/
-├── README.md                           # This file
-├── requirements.txt                    # Python dependencies
-├── utils.py                            # Shared utility functions
-│
-├── depth.ipynb                         # Depth estimation analysis
-├── low_level_features_berman.ipynb     # Low-level visual feature extraction
+perception2appraisal_analyses/
+├── README.md                           
 │
 ├── data/                               # Processed data files
 │   ├── AverageP3_LPP.csv              # Pre-extracted average P3 and LPP amplitudes
@@ -37,14 +32,29 @@ neurourbanism/
 │   ├── EEG_Preprocessing_Zaehmeetal.m # Main preprocessing script
 │   ├── README.md                      # Detailed preprocessing documentation
 │   ├── config/                        # Configuration files
+│   │   ├── eventsStimScale.mat        # Event Names
+│   │   └── ua_config.m                # BeMoBIL pipeline config file
 │   └── functions/                     # Custom MATLAB functions
+│       ├── eeglab_parse_key_val.m     
+│       ├── exportERPs.m
+│       ├── extractAndSaveAverages.m
+│       └── extractAndSavePeaks.m
+│
+├── image_feature_extraction/          # Visual feature extraction (Python)
+│   ├── low_level_features_berman.ipynb # Low-level visual feature extraction
+│   ├── depth.ipynb                    # Depth estimation analysis
+│   ├── segmentation.ipynb             # Semantic segmentation notebook
+│   ├── segmentation_ade.py            # SegFormer ADE20K inference script
+│   ├── utils.py                       # Shared utility functions
+│   └── requirements.txt               # Python dependencies
 │
 └── statistical_analyses/               # R statistical analysis scripts
     ├── 01_data_preparation.R          # Data merging and cleaning
     ├── 02_lme_semseg_llvf.R          # LMMs for ratings ~ visual features
     ├── 03_lme_erp_subj.R             # LMMs for ratings~erp relationships
     └── prepared_data/
-        └── data_LMMs_erps_subj.csv   # Merged analysis-ready dataset
+        ├── data_LMMs_erps_subj.csv   # Merged analysis-ready dataset
+        └──
 ```
 
 ## Getting Started
@@ -124,7 +134,7 @@ jupyter notebook depth.ipynb
 #### Semantic Segmentation
 Extract semantic image contents using the SegFormer-B5 model pretrained on the ADE20K dataset.
 ```python
-TBA
+jupyter notebook segmentation.ipynb
 ```
 
 **Output:** Visual feature matrices ready for statistical analysis (also included pre-calculated in 'statistical_analyses/prepared_data/')
