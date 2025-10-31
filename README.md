@@ -1,9 +1,9 @@
 # From Perception to Appraisal: Hierarchical Responses to Natural and Built Features in Urban Environments (Zaehme et al.) -- Analysis Scripts
 
-<p align="center">
-   <img src="llvf_example.png"" width="440" style="margin:8px;"/>
-   <img src="segmentations_overlay_example.png" alt="Placeholder image 2" width="440" style="margin:8px;"/>
-</p>
+<div style="text-align:center;">
+   <img src="llvf_example.png" alt="Low-level features example" style="display:inline-block; width:45%; max-width:440px; height:auto; margin:8px;" />
+   <img src="segmentations_overlay_example.png" alt="Segmentation overlay example" style="display:inline-block; width:45%; max-width:440px; height:auto; margin:8px;" />
+</div>
 
 This repository contains the analysis pipeline used in the publication "From Perception to Appraisal: Hierarchical Responses to Natural and Built Features in Urban Environments" for investigating neural correlates of urban environment perception using EEG event-related potentials (ERPs), low-level visual features, and subjective ratings.
 
