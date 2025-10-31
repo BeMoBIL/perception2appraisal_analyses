@@ -38,7 +38,6 @@ venv/
 # VS Code settings
 .vscode/
 
-# Ignore data folder except for specific files
-#/data/
-!/data/Most_extreme_pictures/
-!/data/Icon
+# Ignore dataset and results directories
+/data/in
+/data/out

@@ -3,6 +3,8 @@ from datetime import datetime
 import pandas as pd
 from tqdm import tqdm
 from pprint import pprint
+import json
+import numpy as np
 
 
 def append_current_timestamp_to_filename(filename):
@@ -39,7 +41,30 @@ def do_for_each_file_in_folder(folder_path, fn, file_filter=None):
 
             # Round the float values in the result dictionary
             rounded_result = {key: round(value, 4) if isinstance(value, float) else value for key, value in result.items()}
-            pprint(rounded_result)
+
+            # Convert numpy types/arrays to native Python types so printing/JSON won't fail
+            def _to_serializable(v):
+                # numpy scalar floats/ints
+                if isinstance(v, (np.floating, np.integer)):
+                    return v.item()
+                # numpy bool
+                if isinstance(v, (np.bool_)):
+                    return bool(v)
+                # numpy arrays -> lists
+                if isinstance(v, np.ndarray):
+                    return v.tolist()
+                # Python basic types
+                if isinstance(v, (float, int, str, bool, type(None))):
+                    return v
+                # Fallback: try .item() for other numpy-like scalars
+                try:
+                    return v.item()
+                except Exception:
+                    return v
+
+            serializable = {k: _to_serializable(v) for k, v in rounded_result.items()}
+            # Pretty-print as JSON for readable output
+            print(json.dumps(serializable, indent=4, ensure_ascii=False))
 
     return results
 
