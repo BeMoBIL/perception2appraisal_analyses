@@ -1,4 +1,4 @@
-# From Perception to Appraisal: Hierarchical Responses to Natural and Built Features in Urban Environments (Zaehme et al.) -- Analysis Scripts
+# From Perception to Appraisal: Hierarchical Responses to Natural and Built Features in Urban Environments (Zaehme et al., 2025) -- Analysis Scripts
 
 <div style="text-align:center;">
    <img src="llvf_example.png" alt="Low-level features example" style="display:inline-block; width:45%; max-width:440px; height:auto; margin:8px;" />
@@ -179,11 +179,11 @@ Participants rated urban scenes on 9 dimensions (Likert scales):
 
 ## Citation
 
-If you use this code or data, please cite:
+This code accompanies the paper:
 
-```
-[Citation information to be added]
-```
+> Zähme et al. (2025). From Perception to Appraisal: Hierarchical Brain Responses to Natural and Built Features in Urban Environments. *Under Review*.
+
+If you use this code, please cite the paper once published. Preprint: [https://doi.org/10.1101/2025.10.31.685763](https://doi.org/10.1101/2025.10.31.685763) 
 
 ## Related Resources
 
@@ -194,9 +194,6 @@ If you use this code or data, please cite:
 - **Depth Estimation Model**: https://github.com/DepthAnything/Depth-Anything-V2 
 - **Chronicity Estimation**: [Vadivel et al., 2008](https://dx.doi.org/10.1504/IJSISE.2008.026796)
 
-## License
-
-[License information to be added]
 
 ## Contact
 
@@ -204,4 +201,4 @@ For questions or issues, please contact the repository maintainers.
 
 ---
 
-**Last updated:** October 2025  
+**Last updated:** November 2025  
