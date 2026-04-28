@@ -19,42 +19,46 @@ This project contains scripts for:
 ```
 perception2appraisal_analyses/
 ├── README.md                           
+├── llvf_example.png                    # Example low-level feature visualization
+├── segmentations_overlay_example.png   # Example segmentation overlay
 │
-├── data/                               # Processed data files
-│   ├── AverageP3_LPP.csv              # Pre-extracted average P3 and LPP amplitudes
-│   ├── final_sociodem.xlsx            # Sociodemographic data
-│   ├── segmentation_pixel_sums_incl.csv  # Semantic segmentation results
-│   ├── subjective_ratings.zip         # Participant ratings
-│   └── peaks/                         # Per-stimulus ERP peak amplitudes by electrode  
+├── data/                               # Processed data files (zipped)
+│   ├── llvfs.zip                       # Pre-extracted low-level visual features
+│   ├── peaks.zip                       # Per-stimulus ERP peak amplitudes by electrode
+│   ├── segmentation.zip                # Semantic segmentation results
+│   └── subjective_ratings.zip          # Participant ratings
 │
-├── EEG_preprocessing/                 # MATLAB preprocessing pipeline for EEG data
-│   ├── bemobil_pipeline.m             # Core BeMoBIL preprocessing
-│   ├── EEG_Preprocessing_Zaehmeetal.m # Main preprocessing script
-│   ├── README.md                      # Detailed preprocessing documentation
-│   ├── config/                        # Configuration files
-│   │   ├── eventsStimScale.mat        # Event Names
-│   │   └── ua_config.m                # BeMoBIL pipeline config file
-│   └── functions/                     # Custom MATLAB functions
+├── EEG_preprocessing/                  # MATLAB preprocessing pipeline for EEG data
+│   ├── bemobil_pipeline.m              # Core BeMoBIL preprocessing
+│   ├── EEG_Preprocessing_Zaehmeetal.m  # Main preprocessing script
+│   ├── README.md                       # Detailed preprocessing documentation
+│   ├── config/                         # Configuration files
+│   │   ├── eventsStimScale.mat         # Event Names
+│   │   └── ua_config.m                 # BeMoBIL pipeline config file
+│   └── functions/                      # Custom MATLAB functions
 │       ├── eeglab_parse_key_val.m     
 │       ├── exportERPs.m
 │       ├── extractAndSaveAverages.m
 │       └── extractAndSavePeaks.m
 │
-├── image_feature_extraction/          # Visual feature extraction (Python)
+├── image_feature_extraction/           # Visual feature extraction (Python)
 │   ├── low_level_features_berman.ipynb # Low-level visual feature extraction
-│   ├── depth.ipynb                    # Depth estimation analysis
-│   ├── segmentation.ipynb             # Semantic segmentation notebook
-│   ├── segmentation_ade.py            # SegFormer ADE20K inference script
-│   ├── utils.py                       # Shared utility functions
-│   └── requirements.txt               # Python dependencies
+│   ├── depth.ipynb                     # Depth estimation analysis
+│   ├── segmentation.ipynb              # Semantic segmentation notebook
+│   ├── segmentation_ade.py             # SegFormer ADE20K inference script
+│   ├── utils.py                        # Shared utility functions
+│   ├── requirements.txt                # Python dependencies
+│   └── segmentation_evaluation/        # IoU-based segmentation quality evaluation
+│       ├── IoU.py                      # Intersection-over-Union computation
+│       ├── IoU_visualization.py        # IoU result visualization
+│       ├── brush_strokes/              # Manual rater annotations (Rater1/, Rater2/)
+│       ├── config/                     # Rater task configuration (JSON)
+│       └── images/                     # Reference images for evaluation
 │
 └── statistical_analyses/               # R statistical analysis scripts
-    ├── 01_data_preparation.R          # Data merging and cleaning
-    ├── 02_lme_semseg_llvf.R          # LMMs for ratings ~ visual features
-    ├── 03_lme_erp_subj.R             # LMMs for ratings~erp relationships
-    └── prepared_data/
-        ├── data_LMMs_erps_subj.csv   # Merged analysis-ready dataset
-        └──
+    ├── 01_data_preparation.R           # Data merging and cleaning
+    ├── 02_lme_semseg_llvf.R           # LMMs for ratings ~ visual features
+    └── 03_lme_erp_subj.R              # LMMs for ratings~erp relationships
 ```
 
 ## Getting Started
@@ -139,6 +143,9 @@ jupyter notebook segmentation.ipynb
 
 **Output:** Visual feature matrices ready for statistical analysis (also included pre-calculated in 'statistical_analyses/prepared_data/')
 
+The folder `image_feature_extraction/segmentation_evaluation` additionaly contains manual labels created by two separate human labelers for a subset of 12 stimulus images. These were created to evaluate the model's performance on the stimulus material used in the study. The folder also contains scripts to calculate and visualize IoU metrics, as well as the 12 images that were used for evaluation. 
+
+
 ### 3. Data Integration and Statistical Analysis (R)
 
 #### Step 1: Prepare combined dataset
@@ -181,7 +188,7 @@ Participants rated urban scenes on 9 dimensions (Likert scales):
 
 This code accompanies the paper:
 
-> Zähme et al. (2025). From Perception to Appraisal: Hierarchical Brain Responses to Natural and Built Features in Urban Environments. *Under Review*.
+> Zähme et al. (2026). From Perception to Appraisal: Brain Responses to Natural and Built Features in Urban Environments. *Under Review*.
 
 If you use this code, please cite the paper once published. Preprint: [https://doi.org/10.1101/2025.10.31.685763](https://doi.org/10.1101/2025.10.31.685763) 
 
@@ -201,4 +208,4 @@ For questions or issues, please contact the repository maintainers.
 
 ---
 
-**Last updated:** November 2025  
+**Last updated:** April 2026
